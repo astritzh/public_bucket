@@ -1,8 +1,12 @@
 from pycardano import *
 from pathlib import Path
+import sys
 
-# https://testnet.cardanoscan.io/pool/48f2c367cfe81cac6687c3f7c26613edfe73cd329402aa5cf493bb61
-POOL_ID="48f2c367cfe81cac6687c3f7c26613edfe73cd329402aa5cf493bb61"
+if len(sys.argv) != 2: 
+    print(f"Usage: python3 {sys.argv[0]} POOL_ID")
+    sys.exit(-1)
+
+POOL_ID=sys.argv[1]
 network = Network.TESTNET
 
 psk = PaymentSigningKey.load("payment.skey")
